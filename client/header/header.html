@@ -1,6 +1,6 @@
 <template name="header">
-    <header class="row header">
-        <div class="top-bar" data-topbar>
+    <header class="row header sticky">
+        <div class="top-bar" data-topbar data-options="sticky_on: large">
             <ul class="title-area">
                 <li class="name">
                     <h1><a href="">{{ appName }}</a></h1>
@@ -8,8 +8,15 @@
             </ul>
             <nav class="top-bar-section">
                 <ul class="right">
-                    <li><a href="">Foo</a></li>
-                    <li><a href="">Bar</a></li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-plus-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <input type="text" name="name" placeholder="Your name" />
+                    </li>
+                    <li>&nbsp;</li>
                 </ul>
             </nav>
         </div>

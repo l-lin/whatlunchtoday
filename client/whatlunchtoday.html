@@ -1,12 +1,15 @@
 <head>
-    <title>What lunch today</title>
+    <title>What should we eat today?</title>
 </head>
 
 <body>
     {{> header }}
-    <article class="main">
-        {{> search }}
-        <section>
+    <div class="row">&nbsp;</div>
+    <article class="row main">
+        <section class="small-12 columns">
+            {{> search }}
+        </section>
+        <section class="small-12 columns">
             {{> restoList }}
         </section>
     </article>
@@ -16,16 +19,4 @@
     <header>
         <input type="text" name="search" placeholder="Search" />
     </header>
-</template>
-
-<template name="restoList">
-    <ul>
-        {{#each restoList}}
-            {{> resto }}
-        {{/each}}
-    </ul>
-</template>
-
-<template name="resto">
-    <li>{{ name }}</li>
 </template>

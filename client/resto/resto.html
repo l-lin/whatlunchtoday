@@ -1,0 +1,13 @@
+<template name="restoList">
+    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+        {{#each restoList}}
+        {{> resto }}
+        {{/each}}
+    </ul>
+</template>
+
+<template name="resto">
+    <li>
+        <a href="" class="button radius">{{ name }}</a>
+    </li>
+</template>
