@@ -4,19 +4,24 @@
 
 <body>
     {{> header }}
-    <div class="row">&nbsp;</div>
-    <article class="row main">
-        <section class="small-12 columns">
-            {{> search }}
-        </section>
-        <section class="small-12 columns">
-            {{> restoList }}
-        </section>
+    {{> restoForm }}
+    <article class="row wlt-main">
+        {{> search }}
+        <article class="row wlt-main-content">
+            <section class="small-12 columns">
+                {{> restoList }}
+            </section>
+        </article>
     </article>
+    {{> footer }}
 </body>
 
 <template name="search">
-    <header>
-        <input type="text" name="search" placeholder="Search" />
-    </header>
+    <article class="row wlt-search">
+        <section class="small-12 columns">
+            <header>
+                <input type="text" name="search" placeholder="Search" />
+            </header>
+        </section>
+    </article>
 </template>

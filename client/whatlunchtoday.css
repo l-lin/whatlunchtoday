@@ -1,2 +1,39 @@
-.header {
+body {
+    background-color: #F2F2F2;
+}
+
+.wlt-main {
+    border: 1px solid #AAA;
+    border-bottom: 1px solid #888;
+    margin-bottom: 15px;
+    background-color: #FBFBFB;
+    border-radius: 4px;
+    padding: 15px;
+    box-shadow: 2px 2px 2px #AAA;
+}
+
+.wlt-form {
+    border: 1px solid #AAA;
+    border-bottom: 1px solid #888;
+    padding: 15px 15px 0 15px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin-bottom: 15px;
+    background-color: #FBFBFB;
+    box-shadow: 0 2px 2px #AAA;
+}
+
+.wlt-footer {
+    background: #333;
+    padding: 10px 0 10px;
+    color: #FFF;
+}
+
+.wlt-footer ul.wlt-links li {
+    display: block;
+    float: left;
+    margin-left: 6px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.77778rem;
 }

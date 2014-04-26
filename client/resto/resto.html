@@ -1,13 +1,33 @@
 <template name="restoList">
-    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-        {{#each restoList}}
-        {{> resto }}
-        {{/each}}
-    </ul>
+    <!--{{#if loading}}-->
+        <!--<h1><i class="fa fa-spinner"></i>&nbsp;Loading</h1>-->
+    <!--{{else}}-->
+        <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+            {{#each restoList}}
+            {{> resto }}
+            {{/each}}
+        </ul>
+    <!--{{/if}}-->
 </template>
 
 <template name="resto">
     <li>
-        <a href="" class="button radius">{{ name }}</a>
+        <a href="" class="button radius">{{ name }} ({{ score }})</a>
     </li>
+</template>
+
+<template name="restoForm">
+    <div class="row wlt-form">
+        <form name="restoForm">
+            <div class="row">
+                <div class="small-3 columns">
+                    <label>
+                        Name:
+                        <input type="text" value="{{ name }}" placeholder="Name" />
+                        <button class="button success right">Validate</button>
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
 </template>

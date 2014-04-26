@@ -27,7 +27,10 @@ Meteor.startup(function() {
             name: 'Me kong'
         }];
         for (var i = 0; i < restoList.length; i++) {
-            RestoList.insert({name: restoList[i].name});
+            RestoList.insert({
+                name: restoList[i].name,
+                score: 0
+            });
         }
     }
 });
