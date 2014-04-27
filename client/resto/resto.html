@@ -22,12 +22,24 @@
             <div class="row">
                 <div class="small-3 columns">
                     <label>
-                        Name:
                         <input type="text" value="{{ name }}" placeholder="Name" />
-                        <button class="button success right">Validate</button>
                     </label>
+                </div>
+                <div class="small-9 columns">
+                    <button class="button alert right">Cancel</button>
+                    <button class="button right">Validate</button>
                 </div>
             </div>
         </form>
+    </div>
+</template>
+
+<template name="restoChoice">
+    <div data-alert class="alert-box success wlt-choice">
+        <div class="row">
+            <div class="small-12 columns">
+                <h1>You have chosen McDO !</h1>
+            </div>
+        </div>
     </div>
 </template>

@@ -7,7 +7,7 @@ Template.restoList.loading = function() {
 };
 
 Template.restoList.restoList = function() {
-    return RestoList.find({}, {sort: {name: 1}});;
+    return RestoList.find({}, {sort: {score: -1}});;
 };
 
 Template.resto.events({
