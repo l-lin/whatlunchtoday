@@ -5,14 +5,21 @@
 <body>
     {{> header }}
     {{> restoChoice }}
-    <article class="row wlt-main">
-        {{> search }}
-        {{> restoForm }}
-        <article class="row wlt-main-content">
-            <section class="small-12 columns">
+    <article class="wlt-main">
+        <section class="small-2 columns">
+            {{> groupList }}
+        </section>
+        <section class="small-8 columns wlt-main-content wlt-content">
+            <header class="small-12 columns">
+                {{> search }}
+            </header>
+            <article class="small-12 columns">
                 {{> restoList }}
-            </section>
-        </article>
+            </article>
+        </section>
+        <section class="small-2 columns right">
+            {{> restoForm }}
+        </section>
     </article>
     {{> footer }}
 </body>

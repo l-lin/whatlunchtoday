@@ -3,8 +3,8 @@
  */
 (function () {
     'use strict';
-    var APP_NAME = 'What lunch today';
-    Template.header.appName = function() {
-        return APP_NAME;
+    var QUOTE = 'Mmmh... Donut 4 lunch?';
+    Template.header.quote = function() {
+        return QUOTE;
     };
 })();
