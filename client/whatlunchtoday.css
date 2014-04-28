@@ -10,16 +10,23 @@ body {
     margin-bottom: 15px;
     background-color: #FBFBFB;
     box-shadow: 2px 2px 2px #AAA;
-}
-
-.wlt-main {
     border-radius: 3px;
 }
 
+.wlt-main {
+    position: relative;
+}
+
 .wlt-form {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    box-shadow: 0 2px 2px #AAA;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    z-index: 100;
+    display: none;
+}
+
+.wlt-form-button {
+    font-size: 4em;
 }
 
 .wlt-choice h1 {
@@ -27,7 +34,7 @@ body {
 }
 
 .wlt-search input[type="text"] {
-    font-size: 40px;
+    font-size: 30px;
     padding: 30px 10px;
 }
 

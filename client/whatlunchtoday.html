@@ -5,9 +5,9 @@
 <body>
     {{> header }}
     {{> restoChoice }}
-    {{> restoForm }}
     <article class="row wlt-main">
         {{> search }}
+        {{> restoForm }}
         <article class="row wlt-main-content">
             <section class="small-12 columns">
                 {{> restoList }}
@@ -16,13 +16,3 @@
     </article>
     {{> footer }}
 </body>
-
-<template name="search">
-    <article class="row wlt-search">
-        <section class="small-12 columns">
-            <header>
-                <input type="text" name="search" placeholder="Search" />
-            </header>
-        </section>
-    </article>
-</template>

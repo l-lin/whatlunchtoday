@@ -12,26 +12,40 @@
 
 <template name="resto">
     <li>
-        <a href="" class="button radius">{{ name }} ({{ score }})</a>
+        <div class="row">
+            <div class="small-11 columns">
+                {{ name }} ({{ score }})
+            </div>
+            <div class="small-1 columns">
+                <button class="button success">+</button>
+                <button class="button alert">-</button>
+            </div>
+        </div>
+        <!--<a href="" class="button radius wlt-resto">{{ name }} ({{ score }})</a>-->
     </li>
 </template>
 
 <template name="restoForm">
-    <div class="row wlt-form">
+    <section class="small-1 columns wlt-form-button">
+        <a href=""><i class="fa fa-plus-square"></i></a>
+    </section>
+    <section class="small-5 columns wlt-form">
         <form name="restoForm">
             <div class="row">
-                <div class="small-3 columns">
+                <div class="small-12 columns">
                     <label>
-                        <input type="text" value="{{ name }}" placeholder="Name" />
+                        <input name="name" type="text" value="{{ name }}" placeholder="Name" />
                     </label>
                 </div>
-                <div class="small-9 columns">
-                    <button class="button alert right">Cancel</button>
-                    <button class="button right">Validate</button>
+            </div>
+            <div class="row">
+                <div class="small-12 columns">
+                    <button type="submit" class="button wlt-create">Validate</button>
+                    <button type="reset" class="button alert wlt-cancel">Cancel</button>
                 </div>
             </div>
         </form>
-    </div>
+    </section>
 </template>
 
 <template name="restoChoice">
