@@ -1,14 +1,16 @@
 <head>
     <title>What should we eat today?</title>
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
     {{> header }}
     {{> restoChoice }}
     <article class="wlt-main">
-        <section class="small-2 columns">
+        <dl class="small-2 columns accordion" data-accordion>
             {{> groupList }}
-        </section>
+            {{> userList }}
+        </dl>
         <section class="small-8 columns wlt-main-content wlt-content">
             <header class="small-12 columns">
                 {{> search }}

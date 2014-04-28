@@ -1,5 +1,16 @@
 <template name="groupList">
-    <div class="row">
-        <h1>Groups</h1>
+    <dd>
+        <a href="#wlt-group-list">Groups</a>
+        <div id="wlt-group-list" class="content active">
+            {{#each groupList}}
+            {{> group }}
+            {{/each}}
+        </div>
+    </dd>
+</template>
+
+<template name="group">
+    <div class="">
+        <a href="">{{ name }}</a>
     </div>
 </template>

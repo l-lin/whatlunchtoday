@@ -1,0 +1,16 @@
+<template name="userList">
+    <dd>
+        <a href="#wlt-user-list">Users</a>
+        <div id="wlt-user-list" class="content active">
+            {{#each userList}}
+            {{> user }}
+            {{/each}}
+        </div>
+    </dd>
+</template>
+
+<template name="user">
+    <div class="">
+        <a href="">{{ name }}</a>
+    </div>
+</template>

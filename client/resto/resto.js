@@ -23,15 +23,6 @@ Template.resto.events({
 });
 
 Template.restoForm.events({
-    'click .wlt-form-button': function() {
-        $('.wlt-form').show();
-        $('.wlt-form input[name="name"]').focus();
-        return false;
-    },
-    'click .wlt-form .wlt-cancel': function() {
-        $('.wlt-form').hide();
-        return false;
-    },
     'submit': function() {
         var $form = $('.wlt-form'),
             $name = $('.wlt-form input[name="name"]'),
@@ -43,7 +34,6 @@ Template.restoForm.events({
             });
             $name.val('');
         }
-        $form.hide();
         return false;
     }
 });

@@ -26,21 +26,18 @@
 </template>
 
 <template name="restoForm">
-    <section class="small-1 columns wlt-form-button">
-        <a href=""><i class="fa fa-plus-square"></i></a>
-    </section>
-    <section class="small-5 columns wlt-form">
+    <section class="small-12 columns wlt-form wlt-content">
         <form name="restoForm">
             <div class="row">
                 <div class="small-12 columns">
                     <label>
-                        <input name="name" type="text" value="{{ name }}" placeholder="Name" />
+                        <input name="name" type="text" value="{{ name }}" placeholder="Restaurant name" />
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="small-12 columns">
-                    <button type="submit" class="button wlt-create">Validate</button>
+                    <button type="submit" class="button wlt-create">Add</button>
                     <button type="reset" class="button alert wlt-cancel">Cancel</button>
                 </div>
             </div>
