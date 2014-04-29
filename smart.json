@@ -1,6 +1,9 @@
 {
   "packages": {
-    "font-awesome": {},
-    "iron-router": {}
+    "iron-router": {},
+    "handlebar-helpers": {},
+    "iron-router-progress": {},
+    "semantic-ui": {},
+    "collection2": {}
   }
 }
