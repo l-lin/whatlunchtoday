@@ -1,6 +1,4 @@
-RestoList = new Meteor.Collection('restoList');
-
-var restoListHandle = Meteor.subscribe('restoList', function() {});
+var restoListHandle = Meteor.subscribe('restoList');
 
 Template.restoList.loading = function() {
     return !restoListHandle.ready();
@@ -24,8 +22,7 @@ Template.resto.events({
 
 Template.restoForm.events({
     'submit': function() {
-        var $form = $('.wlt-form'),
-            $name = $('.wlt-form input[name="name"]'),
+        var $name = $('.wlt-form').find('input[name="name"]'),
             name = $name.val();
         if (name) {
             RestoList.insert({
@@ -37,3 +34,7 @@ Template.restoForm.events({
         return false;
     }
 });
+
+Template.restoChoice.show = function() {
+    return user();
+};

@@ -1,13 +1,13 @@
 <template name="restoList">
-    <!--{{#if loading}}-->
-        <!--<h1><i class="fa fa-spinner"></i>&nbsp;Loading</h1>-->
-    <!--{{else}}-->
+    {{#if loading}}
+        <h1><i class="fa fa-spinner"></i>&nbsp;Loading</h1>
+    {{else}}
         <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
             {{#each restoList}}
             {{> resto }}
             {{/each}}
         </ul>
-    <!--{{/if}}-->
+    {{/if}}
 </template>
 
 <template name="resto">

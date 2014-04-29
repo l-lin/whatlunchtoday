@@ -1,6 +1,11 @@
-RestoList = new Meteor.Collection('restoList');
+Meteor.publish('userList', function() {
+    return UserList.find();
+});
 
-Meteor.publish('restoList', function(name) {
-    check(name, String);
-    return RestoList.find({name: name});
+Meteor.publish('user', function(name) {
+    return UserList.findOne({name: name});
+});
+
+Meteor.publish('restoList', function() {
+    return RestoList.find();
 });

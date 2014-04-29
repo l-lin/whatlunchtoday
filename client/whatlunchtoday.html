@@ -5,7 +5,26 @@
 
 <body>
     {{> header }}
-    {{> restoChoice }}
+    {{> login }}
+    {{> choice }}
+    {{> main }}
+    {{> footer }}
+</body>
+
+<template name="choice">
+    {{#if show}}
+    <div data-alert class="alert-box success wlt-choice">
+        <div class="row">
+            <div class="small-12 columns">
+                <h1>You have chosen McDO !</h1>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</template>
+
+<template name="main">
+    <!--{{#if show }}-->
     <article class="wlt-main">
         <dl class="small-2 columns accordion" data-accordion>
             {{> groupList }}
@@ -23,5 +42,5 @@
             {{> restoForm }}
         </section>
     </article>
-    {{> footer }}
-</body>
+    <!--{{/if}}-->
+</template>

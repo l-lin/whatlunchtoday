@@ -1,10 +1,12 @@
-/**
- * Created by llin on 26/04/14.
- */
-(function () {
-    'use strict';
-    var QUOTE = 'Mmmh... Donut 4 lunch?';
-    Template.header.quote = function() {
-        return QUOTE;
-    };
-})();
+var LOGIN_QUOTE = 'What\'s my name again?',
+    GROUP_QUOTE = 'Who should I eat with?',
+    QUOTE = 'Mmmh... Donut?';
+Template.header.quote = function () {
+    if (!user()) {
+        return LOGIN_QUOTE;
+    }
+    if (!group()) {
+        return GROUP_QUOTE;
+    }
+    return QUOTE;
+};
