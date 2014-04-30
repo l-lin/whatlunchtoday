@@ -1,5 +1,5 @@
 var dummyRestoList = [{
-    name: 'McDo',
+    name: 'McDo'
 }, {
     name: 'Quick'
 }, {

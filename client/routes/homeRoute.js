@@ -6,7 +6,14 @@ Router.map(function () {
     this.route('home', {
         path :  '/',
         controller :  HomeController,
-        onBeforeAction: function() {
+        waitOn: function() {
+            return Meteor.subscribe('userList');
+        },
+        data: function() {
+            return {
+                user: UserList.currentUser.get(),
+                group: GroupList.currentGroup.get()
+            };
         }
     });
 });

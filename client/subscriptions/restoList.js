@@ -1,2 +1,1 @@
 Meteor.subscribe('restoList');
-

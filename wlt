@@ -18,7 +18,7 @@ case ${1} in
 
         # Create files
         touch client/views/${2}/${2}.js
-        touch client/views/${2}/${2}.less
+        touch client/views/${2}/${2}.styl
         touch client/views/${2}/${2}.html
         # Fill files
         echo "<template name=\"${2}\">" >> client/views/${2}/${2}.html
@@ -31,9 +31,9 @@ case ${1} in
         echo "Template['${2}'].events({"   >> client/views/${2}/${2}.js
         echo "});"                      >> client/views/${2}/${2}.js
         echo ""                         >> client/views/${2}/${2}.js
-        echo "@import '../../stylesheets/variables.less'; "  >> client/views/${2}/${2}.less
-        echo "@import '../../stylesheets/elements.less'; "  >> client/views/${2}/${2}.less
-        echo ""                                             >> client/views/${2}/${2}.less
+        echo "@import '../../stylesheets/variables.styl'; "  >> client/views/${2}/${2}.styl
+        echo "@import '../../stylesheets/elements.styl'; "  >> client/views/${2}/${2}.styl
+        echo ""                                             >> client/views/${2}/${2}.styl
         # Succesful
         echo "Successfully created a view called \"${2}\""
         ;;
@@ -109,7 +109,7 @@ case ${1} in
 
         # Create files
         touch client/modules/${2}/${2}.js
-        touch client/modules/${2}/${2}.less
+        touch client/modules/${2}/${2}.styl
         touch client/modules/${2}/${2}.html
 
         # Fill files
@@ -125,8 +125,8 @@ case ${1} in
         echo "});"                      >> client/modules/${2}/${2}.js
         echo ""                         >> client/modules/${2}/${2}.js
 
-        echo "@import '../../stylesheets/variables.less'; "  >> client/modules/${2}/${2}.less
-        echo ""                                             >> client/modules/${2}/${2}.less
+        echo "@import '../../stylesheets/variables.styl'; "  >> client/modules/${2}/${2}.styl
+        echo ""                                             >> client/modules/${2}/${2}.styl
 
         # Succesful
         echo "Successfully created a module called \"${2}\""

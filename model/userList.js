@@ -20,3 +20,22 @@ UserList.allow({
     }
 });
 
+UserList.KEY = 'userName';
+UserList.currentUser = {
+    get: function() {
+        return UserList.findOne({name: this.getKey()});
+    },
+    save: function(userName) {
+        localStorage.setItem(UserList.KEY, userName);
+        var user = this.get();
+        if (!user) {
+            UserList.insert({name: userName});
+        }
+    },
+    remove: function() {
+        localStorage.removeItem(UserList.KEY);
+    },
+    getKey: function() {
+        return localStorage.getItem(UserList.KEY)
+    }
+};
