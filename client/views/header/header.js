@@ -1,6 +1,7 @@
 var LOGIN_QUOTE = 'What\'s my name again?',
     GROUP_QUOTE = 'Who should I eat with?',
-    HOME_QUOTE = 'Let\'s go to... ';
+    ABOUT_QUOTE = 'Bite my shiny metal ass!',
+    HOME_QUOTE = 'Let\'s go to... ',
     QUOTE = 'Mmm... Donuts?';
 Template.header.helpers({
     quote: function () {
@@ -11,11 +12,13 @@ Template.header.helpers({
                     return LOGIN_QUOTE;
                 case 'GROUP':
                     return GROUP_QUOTE;
+                case 'ABOUT':
+                    return ABOUT_QUOTE;
                 case 'HOME':
                     var me = Router.current().data().currentUser;
                     if (me) {
                         var chosenResto = RestoList.findOne({groupName: me.groupName}, {sort: {score: -1}});
-                        return chosenResto ? HOME_QUOTE + chosenResto.name : QUOTE;
+                        return chosenResto ? HOME_QUOTE + chosenResto.name + '!!!' : QUOTE;
                     }
                     return QUOTE;
             }
@@ -24,14 +27,19 @@ Template.header.helpers({
     },
     showButtons: function() {
         if (Router.current().data()) {
-            return Router.current().data().step !== 'LOGIN';
+            return Router.current().data().step !== 'LOGIN' && Router.current().data().step !== 'ABOUT';
         }
         return false;
     },
     cssHeader: function() {
         if (Router.current().data()) {
             var step = Router.current().data().step;
-            return step === 'HOME' ? 'wlt-header-home' : '';
+            switch(step) {
+                case 'ABOUT':
+                    return 'wlt-header-about';
+                case 'HOME':
+                    return 'wlt-header-home';
+            }
         }
         return '';
     }

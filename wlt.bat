@@ -38,7 +38,7 @@ if %1 EQU create:test (
 exit /b
 
 :errormeteor
-  echo Please use the meteor-boilerplate console tool out of your project root ^(.\meteor-boilerplate^)
+  echo Please use the wlt console tool out of your project root ^(.\wlt^)
   exit /b
 :end
 
@@ -65,7 +65,7 @@ exit /b
 
   :: Create files
   copy /y nul client\views\%1\%1.js
-  copy /y nul client\views\%1\%1.less
+  copy /y nul client\views\%1\%1.styl
   copy /y nul client\views\%1\%1.html
 
   :: Fill files
@@ -76,8 +76,6 @@ exit /b
   echo }); >> client\views\%1\%1.js
   echo Template['%1'].events({ >> client\views\%1\%1.js
   echo }); >> client\views\%1\%1.js
-  echo @import '../../stylesheets/variables.less'; >> client\views\%1\%1.less
-  echo @import '../../stylesheets/elements.less'; >> client\views\%1\%1.less
 
   :: Succesful
   echo Successfully created a view called %1
@@ -208,7 +206,7 @@ exit /b
 
   :: Create files
   copy /y nul client\modules\%1\%1.js
-  copy /y nul client\modules\%1\%1.less
+  copy /y nul client\modules\%1\%1.styl
   copy /y nul client\modules\%1\%1.html
 
   :: Fill files
@@ -222,7 +220,7 @@ exit /b
   echo Template['%1'].events({ >> client\modules\%1\%1.js
   echo }); >> client\modules\%1\%1.js
 
-  echo @import '../../stylesheets/variables.less'; >> client\modules\%1\%1.less
+  echo @import '../../stylesheets/variables.styl'; >> client\modules\%1\%1.styl
 
   :: Succesful
   echo Successfully created a module called %1

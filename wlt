@@ -31,8 +31,6 @@ case ${1} in
         echo "Template['${2}'].events({"   >> client/views/${2}/${2}.js
         echo "});"                      >> client/views/${2}/${2}.js
         echo ""                         >> client/views/${2}/${2}.js
-        echo "@import '../../stylesheets/variables.styl'; "  >> client/views/${2}/${2}.styl
-        echo "@import '../../stylesheets/elements.styl'; "  >> client/views/${2}/${2}.styl
         echo ""                                             >> client/views/${2}/${2}.styl
         # Succesful
         echo "Successfully created a view called \"${2}\""
