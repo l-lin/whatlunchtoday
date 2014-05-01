@@ -4,20 +4,12 @@
         <ul class="small-block-grid-2 large-block-grid-3 button-group">
             {{#each groupList}}
             <!--<li class="wlt-group large secondary button split" data-name="{{ name }}">-->
-            <li>
-                <a href="" class="wlt-group large secondary button split">
-                    <i class="wlt-form-name" data-name="{{ name }}">{{ name }}</i>
-                    <span data-dropdown="drop{{ name }}"></span>
-                </a>
-                <ul id="drop{{ name }}" class="f-dropdown" data-dropdown-content>
-                    <li><a href="#" class="text-primary wlt-edit" data-name="{{ name }}"><i class="fa fa-edit"></i>&nbsp;Edit</a></li>
-                    <li><a href="#" class="text-primary wlt-remove" data-name="{{ name }}"><i class="fa fa-trash-o"></i>&nbsp;Remove</a></li>
-                </ul>
-                <!--<span class="wlt-buttons large">-->
-                    <!--<button class="wlt-remove-btn small alert button"><i class="fa fa-trash-o"></i></button>-->
-                    <!--<br />-->
-                    <!--<button class="wlt-edit-btn small button"><i class="fa fa-edit"></i></button>-->
-                <!--</span>-->
+            <li class="wlt-group large secondary button" data-name="{{ name }}">
+                {{ name }}
+                <a href="#" class="text-primary wlt-edit" data-name="{{ name }}">E</a>
+                <a href="#" class="text-primary wlt-remove" data-name="{{ name }}">R</a>
+                <!--<a href="#" class="text-primary wlt-edit" data-name="{{ name }}"><i class="fa fa-edit"></i></a>-->
+                <!--<a href="#" class="text-primary wlt-remove" data-name="{{ name }}"><i class="fa fa-trash-o"></i></a>-->
             </li>
             {{/each}}
         </ul>
@@ -29,9 +21,11 @@
     </article>
     <article class="row wlt-content wlt-group-form">
         <form name="groupForm">
-            <input class="" type="text" name="name" placeholder="Group name" />
-            <button class="right alert button">Cancel</button>
-            <button class="right success button">Create</button>
+            <input class="" type="text" name="name" placeholder="Group name"/>
+            <input type="hidden" name="formType" value="" />
+            <input type="hidden" name="prevValue" value="" />
+            <button type="reset" class="wlt-cancel right alert button">Cancel</button>
+            <button type="submit" class="right success button">Ok</button>
         </form>
     </article>
     {{/if}}

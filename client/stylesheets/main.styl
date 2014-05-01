@@ -10,7 +10,7 @@ html
 /* Override foundation, otherwise, there is a scrollbar */
 @media only screen
   [class*="block-grid-"]
-    margin: 0;
+    margin: 0
 
 .wlt-content
   border 1px solid #AAA
@@ -21,11 +21,37 @@ html
   box-shadow 2px 2px 2px #AAA
   border-radius 3px
 
-.f-dropdown li a.wlt-edit
-  color #2ba6cb
+a.wlt-edit,
+a.wlt-remove
+  color #333
+  position absolute
+  right 10px
+  padding 5px 10px
+  font-size small
+  display none
 
-.f-dropdown li a.wlt-remove
-  color #cc1d15
+li.button:hover a.wlt-edit,
+li.button:hover a.wlt-remove
+  display block
+
+a.wlt-edit
+  top 5px
+
+a.wlt-edit:hover,
+a.wlt-remove:hover
+  color #fff
+  border-radius 3px
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 2px #aaa;
+
+a.wlt-edit:hover
+  background-color #2ba6cb
+
+a.wlt-remove
+  bottom 5px
+
+a.wlt-remove:hover
+  background-color #cc1d15
 
 /* -------------------
     Progress bar
