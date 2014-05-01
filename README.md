@@ -1,49 +1,64 @@
-# meteor-boilerplate
+# What Lunch Today
 
-This boilerplate is here to give you a structure for typical meteor projects, with a console tool to ease up some tasks.
-Here's what the boilerplate looks like: [boilerplate.meteor.com](http://boilerplate.meteor.com)
+> Me: What should we eat for lunch today?
+> Colleague 1: Dunno
+> Colleague 2: Whatever
+> 10 minutes pass and we still don't know what to eat...
 
-## How to install
+This application will **SAVE** you 10 minutes a day (at least for indecisive people like me)!
+`What Lunch Today` is a collaborative application that will choose your lunch for you and your friends/colleagues.
 
-First, [download](https://github.com/matteodem/meteor-boilerplate/zipball/master) and unpack the boilerplate archive.
+## How to use
+
+Go to the [application](http://whatlunchtoday.herokuapp.com), then
+
+* set your name
+* choose the group you wish to eat with
+* vote for the meal you wish to eat for lunch
+    * each member of the group have 5 votes each day to select the meal they want to eat
+    * the meal that has the most votes is obviously the meal you will eat for lunch
+
+That's it! Not complicated! (maybe too simple...)
+
+# About this project
+
+I started this project because we were always idling in the cold street in order to choose where to eat...
+Since I wanted to test out [MeteorJS](http://www.meteor.com) and [Foundation](http://foundation.zurb.com), this project was the perfect "guinea pigs"!
+
+This project is build with:
+
+* [MeteorJS](http://www.meteor.com)
+* [Foundation](http://foundation.zurb.com)
+* [jQuery](http://jquery.com)
+* [Iron router](https://github.com/EventedMind/iron-router)
+* [Iron router progress](https://github.com/Multiply/iron-router-progress)
+* [Font awesome](http://fortawesome.github.io/Font-Awesome)
+
+If you have any suggestion, feel free to submit a request. I don't bite!
+
+# Getting involved
+
+If you wish to contribute for this project, I am using [Git Flow](https://github.com/nvie/gitflow) for versioning workflow.
+
+## Getting started
+
 ```
 # Assuming meteor and meteorite are already installed...
-cd /path/to/project/
+cd /path/to/whatlunchtoday/
 mrt install
 meteor
 ```
 
-## How to use
+Access to [http://localhost:3000](http://localhost:3000)
+
+## Commands list
+`What lunch today` comes with console tool, which helps on creating views, routes and so on (wlt.bat for windows users):
+
 ```
-./meteor-boilerplate # Lists all possible commands 
+./wlt # Lists all possible commands 
 ```
 
-### Packages used
-
-* semantic-ui
-* collection2
-* less
-* jquery
-* underscore
-* handlebar-helpers
-* iron-router
-* iron-router-progress
-* accounts-password
-* accounts-ui
-
-## What's in this boilerplate
-
-The "insecure" and "autopublish" packages are removed by default. Several other packages are added, which are listed on the bottom. There's already a lot of predefined code in this boilerplate, to show you the possible functionality.
-
-### Features
-
-* Comprehensive folder structure
-* TDD / BDD with [laika](http://arunoda.github.io/laika/)
-* Multi page apps with [iron-router](https://github.com/EventedMind/iron-router)
-* A way to load fixtures (as of now no external packages used for that)
-* meteor-boilerplate console tool, which helps on creating views, routes and so on (meteor-boilerplate.bat for windows users)
-
-### Folder structure
+## Folder structure
 
 ```
 client/ 				# Client folder
@@ -66,20 +81,11 @@ server/					# Server folder
     publications/       # Collection publications(*)
     startup/            # On server startup
 tests/					# Test files, can be run with laika
-meteor-boilerplate		# Command line tool
-meteor-boilerplate.bat  # Command line tool for windows
+wlt		# Command line tool
+wlt.bat  # Command line tool for windows
 ```
 
 (*) = the command line tool creates files in these folders
 
-## Projects created with this boilerplate
-[places](https://github.com/matteodem/places)
-
-## Other Awesome Boilerplates
-
-- [Void](https://github.com/SachaG/Void) by Sacha Greif
-- [meteor-jw-opinionated-skeleton](https://github.com/jamesdwilson/meteor-jw-opinionated-skeleton) by jamesdwilson (CoffeeScript)
-- [meteor-boilerplate](https://github.com/BeDifferential/meteor-boilerplate) by BeDifferential (CoffeeScript)
-
 ## License
-This boilerplate has an MIT License, see the LICENSE.txt for more information.
+[MIT Licence](http://en.wikipedia.org/wiki/MIT_License)
