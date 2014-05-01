@@ -1,10 +1,11 @@
 var FORM_TYPE_CREATE = 'Create',
-    FORM_TYPE_MODIFY = 'Modify';
+    FORM_TYPE_MODIFY = 'Modify',
+    SESSION_SEARCH_RESTO_KEY = 'searchRestoName';
 
 Template.home.rendered = function() {
     if(!this._rendered) {
         this._rendered = true;
-        $('.wlt-search').find('input[type="text"]').focus();
+        $('.wlt-resto-search').find('input[type="text"]').focus();
     }
 };
 
@@ -34,10 +35,11 @@ Template.home.helpers({
     },
     restoList: function() {
         var me = Router.current().data().currentUser,
-            searchRestoName = $('.wlt-search').val();
+            searchRestoName = Session.get(SESSION_SEARCH_RESTO_KEY);
         if (me) {
             if (searchRestoName) {
-                return RestoList.find({groupName: me.groupName, name: searchRestoName}, {sort: {score: -1}});
+                var regex = new RegExp(searchRestoName, 'i');
+                return RestoList.find({groupName: me.groupName, name: regex}, {sort: {score: -1}});
             }
             return RestoList.find({groupName: me.groupName}, {sort: {score: -1}});
         }
@@ -135,5 +137,8 @@ Template.home.events({
         $restoForm.hide();
         $restoFormName.val('');
         event.preventDefault();
+    },
+    'keyup .wlt-resto-search input[type=text]': function(event) {
+        Session.set(SESSION_SEARCH_RESTO_KEY, event.target.value);
     }
 });
