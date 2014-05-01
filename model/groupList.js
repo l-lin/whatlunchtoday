@@ -25,7 +25,7 @@ GroupList.currentGroup = {
     get: function() {
         return GroupList.findOne({name: this.getKey()});
     },
-    save: function(groupName) {
+    register: function(groupName) {
         localStorage.setItem(GroupList.KEY, groupName);
         var group = this.get();
         if (!group) {

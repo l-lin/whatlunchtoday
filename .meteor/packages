@@ -9,6 +9,7 @@ underscore
 handlebar-helpers
 iron-router
 iron-router-progress
-semantic-ui
 collection2
 stylus
+foundation
+font-awesome

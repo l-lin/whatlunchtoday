@@ -1,11 +1,11 @@
 <template name="basicLayout">
-    <header>
+    <header class="wlt-header row">
         {{> yield region='header'}}
     </header>
-    <div id="main">
+    <article class="wlt-main">
         {{> yield}}
-    </div>
-    <footer>
+    </article>
+    <footer class="wlt-footer">
         {{> yield region='footer'}}
     </footer>
 </template>

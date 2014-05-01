@@ -11,8 +11,8 @@ Router.map(function () {
         },
         data: function() {
             return {
-                user: UserList.currentUser.get(),
-                group: GroupList.currentGroup.get()
+                currentUser: UserList.currentUser.get(),
+                currentGroup: GroupList.currentGroup.get()
             };
         }
     });

@@ -3,7 +3,8 @@
     "iron-router": {},
     "handlebar-helpers": {},
     "iron-router-progress": {},
-    "semantic-ui": {},
-    "collection2": {}
+    "collection2": {},
+    "foundation": {},
+    "font-awesome": {}
   }
 }

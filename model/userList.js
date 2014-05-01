@@ -25,7 +25,7 @@ UserList.currentUser = {
     get: function() {
         return UserList.findOne({name: this.getKey()});
     },
-    save: function(userName) {
+    register: function(userName) {
         localStorage.setItem(UserList.KEY, userName);
         var user = this.get();
         if (!user) {

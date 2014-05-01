@@ -1,11 +1,11 @@
 var dummyGroupList = [{
     name: 'Monidorks'
 }, {
-    name: 'Somedudes'
+    name: 'Integraminators'
 }, {
     name: 'Easynerds'
 }, {
-    name: 'Adbackdown'
+    name: 'Adbackdudes'
 }];
 
 function loadGroupList(groupList) {

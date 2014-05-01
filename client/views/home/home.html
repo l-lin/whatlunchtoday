@@ -1,8 +1,33 @@
 <template name="home">
     {{#if show }}
-        <h1>MAIN</h1>
-        {{#each groupList}}
-            <h3>{{ name }}</h3>
-        {{/each}}
+    <article class="wlt-home">
+        <div class="wlt-home-choice alert-box success">
+            <h3>You have chosen McDO!</h3>
+        </div>
+        <!--<dl class="small-2 columns">-->
+            <!--{{> groupList }}-->
+            <!--{{> userList }}-->
+        <!--</dl>-->
+        <!--<section class="small-8 columns wlt-home-content wlt-content">-->
+        <section class="row wlt-home-content wlt-content">
+            <header class="small-12 columns">
+                <div class="wlt-search">
+                    <input type="text" name="search" placeholder="Search" />
+                </div>
+            </header>
+            <article class="small-12 columns wlt-resto-list">
+                <ul class="small-block-grid-2 large-block-grid-4">
+                    {{#each restoList }}
+                    <li class="wlt-resto large secondary button">
+                        {{ name }} ({{ score }})
+                    </li>
+                    {{/each}}
+                </ul>
+            </article>
+        </section>
+        <!--<section class="small-2 columns right">-->
+            <!--{{> restoForm }}-->
+        <!--</section>-->
+    </article>
     {{/if}}
 </template>
