@@ -2,6 +2,7 @@ var LOGIN_QUOTE = 'What\'s my name again?',
     GROUP_QUOTE = 'Who should I eat with?',
     ABOUT_QUOTE = 'Bite my shiny metal ass!',
     HOME_QUOTE = 'Let\'s go to... ',
+    NOT_FOUND_QUOTE = 'I think you are lost...',
     QUOTE = 'Mmm... Donuts?';
 Template.header.helpers({
     quote: function () {
@@ -23,11 +24,12 @@ Template.header.helpers({
                     return QUOTE;
             }
         }
-        return LOGIN_QUOTE;
+        return NOT_FOUND_QUOTE;
     },
     showButtons: function() {
         if (Router.current().data()) {
-            return Router.current().data().step !== 'LOGIN' && Router.current().data().step !== 'ABOUT';
+            return Router.current().data().step !== 'LOGIN' &&
+                Router.current().data().step !== 'ABOUT';
         }
         return false;
     },
@@ -40,8 +42,9 @@ Template.header.helpers({
                 case 'HOME':
                     return 'wlt-header-home';
             }
+            return '';
         }
-        return '';
+        return 'wlt-header-not-found';
     }
 });
 
