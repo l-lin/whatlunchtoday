@@ -3,21 +3,16 @@
     <article class="wlt-group-list row">
         <ul class="small-block-grid-2 large-block-grid-3 button-group">
             {{#each groupList}}
-            <!--<li class="wlt-group large secondary button split" data-name="{{ name }}">-->
             <li class="wlt-group large secondary button" data-name="{{ name }}">
                 {{ name }}
-                <a href="#" class="text-primary wlt-edit" data-name="{{ name }}">E</a>
-                <a href="#" class="text-primary wlt-remove" data-name="{{ name }}">R</a>
-                <!--<a href="#" class="text-primary wlt-edit" data-name="{{ name }}"><i class="fa fa-edit"></i></a>-->
-                <!--<a href="#" class="text-primary wlt-remove" data-name="{{ name }}"><i class="fa fa-trash-o"></i></a>-->
+                <a href="#" class="text-primary wlt-edit" data-name="{{ name }}"><i class="fa fa-pencil"></i></a>
+                <a href="#" class="text-primary wlt-remove" data-name="{{ name }}"><i class="fa fa-trash-o"></i></a>
             </li>
             {{/each}}
         </ul>
     </article>
     <article class="row">
-        <section class="small-12 columns">
-            <button class="wlt-group-create large button expand">Can't find your group? Create one!</button>
-        </section>
+        <button class="wlt-group-create large button expand">Can't find your group? Create one!</button>
     </article>
     <article class="row wlt-content wlt-group-form">
         <form name="groupForm">

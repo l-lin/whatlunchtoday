@@ -2,6 +2,9 @@ UserList = new Meteor.Collection2('userList', {
     schema : new SimpleSchema({
         name: {
             type: String
+        },
+        groupName: {
+            type: String
         }
     })
 });
@@ -29,10 +32,10 @@ UserList.currentUser = {
         localStorage.setItem(UserList.KEY, userName);
         var user = this.get();
         if (!user) {
-            UserList.insert({name: userName});
+            UserList.insert({name: userName, groupName: 'whatlunchtoday'});
         }
     },
-    remove: function() {
+    unregister: function() {
         localStorage.removeItem(UserList.KEY);
     },
     getKey: function() {

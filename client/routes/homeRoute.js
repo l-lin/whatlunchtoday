@@ -4,15 +4,15 @@ var HomeController = RouteController.extend({
 
 Router.map(function () {
     this.route('home', {
-        path :  '/',
-        controller :  HomeController,
-        waitOn: function() {
-            return Meteor.subscribe('userList');
+        path: '/',
+        controller: HomeController,
+        waitOn: function () {
+            return [Meteor.subscribe('userList'), Meteor.subscribe('groupList'), Meteor.subscribe('restoList')];
         },
-        data: function() {
+        data: function () {
             return {
-                currentUser: UserList.currentUser.get(),
-                currentGroup: GroupList.currentGroup.get()
+                step: 'HOME',
+                currentUser: UserList.currentUser.get()
             };
         }
     });

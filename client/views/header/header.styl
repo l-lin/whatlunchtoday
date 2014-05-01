@@ -1,5 +1,9 @@
 .wlt-header
   background url("images/homer.png") no-repeat
+  position relative
+
+.wlt-header.wlt-header-home
+  background url("images/homer_youhou.png") no-repeat
 
 .wlt-header h1
   position relative
@@ -10,17 +14,25 @@
   line-height 60px
   text-shadow 1px 1px #ccc
   text-align center
-  background: #fff;
-  border-radius: 3px;
-  box-shadow: 3px 5px 10px #aaa;
+  background #fff
+  border-radius 3px
+  box-shadow 3px 5px 10px #aaa
 
 .wlt-header h1:before
-  content: '';
-  position: absolute;
-  left: -15px;
-  width: 0;
-  height: 0;
-  top: 20%;
-  border-right: 20px solid #fff;
-  border-bottom: 20px solid transparent;
-  border-top: 20px solid transparent;
+  content ''
+  position absolute
+  left -15px
+  width 0
+  height 0
+  top 20%
+  border-right 20px solid #fff
+  border-bottom 20px solid transparent
+  border-top 20px solid transparent
+
+.wlt-header-buttons
+  position absolute
+  right 0
+  top 0
+
+.wlt-header-buttons li
+  padding 20px 15px

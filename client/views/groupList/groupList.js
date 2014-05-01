@@ -14,27 +14,30 @@ Template.groupList.helpers({
     }
 });
 
-
 Template.groupList.events({
-    'click .wlt-form-name': function(event) {
+    'click .wlt-group': function(event) {
         var groupName = this.name;
         if (groupName) {
-            GroupList.currentGroup.register(groupName);
+            var me = Router.current().data().currentUser;
+            UserList.update(me._id, {$set: {groupName: groupName}});
+            Meteor.call('createDummyRestoListIfNotExist', groupName);
             Router.go('home');
         }
         event.preventDefault();
     },
-    'click .wlt-remove': function(event) {
+    'click .wlt-group .wlt-remove': function(event) {
         var groupName = this.name;
         if (groupName) {
             var group = GroupList.findOne({name: groupName});
             if (group) {
+                Meteor.call('removeRestoListByGroupName', groupName);
                 GroupList.remove(group._id);
             }
         }
+        event.stopPropagation();
         event.preventDefault();
     },
-    'click .wlt-edit': function() {
+    'click .wlt-group .wlt-edit': function(event) {
         var groupName = this.name;
         if (groupName) {
             var $groupForm = $('.wlt-group-form'),
@@ -47,6 +50,8 @@ Template.groupList.events({
             $groupFormType.val(FORM_TYPE_MODIFY);
             $groupFormName.focus();
         }
+        event.stopPropagation();
+        event.preventDefault();
     },
     'click .wlt-group-create': function(event) {
         var $groupForm = $('.wlt-group-form'),

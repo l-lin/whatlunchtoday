@@ -19,23 +19,3 @@ GroupList.allow({
         return true;
     }
 });
-
-GroupList.KEY = 'groupName';
-GroupList.currentGroup = {
-    get: function() {
-        return GroupList.findOne({name: this.getKey()});
-    },
-    register: function(groupName) {
-        localStorage.setItem(GroupList.KEY, groupName);
-        var group = this.get();
-        if (!group) {
-            GroupList.insert({name: this.getKey()});
-        }
-    },
-    remove: function() {
-        localStorage.removeItem(GroupList.KEY);
-    },
-    getKey: function() {
-        return localStorage.getItem(GroupList.KEY)
-    }
-};

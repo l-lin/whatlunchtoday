@@ -1,3 +1,17 @@
 <template name="header">
-    <h1>{{ quote }}</h1>
+    <article class="wlt-header row {{ cssHeader }}">
+        <h1>{{ quote }}</h1>
+        {{#if showButtons }}
+        <div class="wlt-header-buttons">
+            <ul class="small-block-grid-2">
+                <li data-tooltip class="wlt-group-change button tip-bottom" title="Change group">
+                    <i class="fa fa-group"></i>
+                </li>
+                <li class="wlt-logout alert button">
+                    <i class="fa fa-power-off"></i>
+                </li>
+            </ul>
+        </div>
+        {{/if}}
+    </article>
 </template>
