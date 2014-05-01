@@ -1,5 +1,6 @@
 var LOGIN_QUOTE = 'What\'s my name again?',
     GROUP_QUOTE = 'Who should I eat with?',
+    HOME_QUOTE = 'Let\'s go to... ';
     QUOTE = 'Mmm... Donuts?';
 Template.header.helpers({
     quote: function () {
@@ -14,7 +15,7 @@ Template.header.helpers({
                     var me = Router.current().data().currentUser;
                     if (me) {
                         var chosenResto = RestoList.findOne({groupName: me.groupName}, {sort: {score: -1}});
-                        return chosenResto ? chosenResto.name : QUOTE;
+                        return chosenResto ? HOME_QUOTE + chosenResto.name : QUOTE;
                     }
                     return QUOTE;
             }
