@@ -1,0 +1,100 @@
+body
+  background-color #F2F2F2
+  margin 0 0 100px
+  position initial
+
+html
+  position relative
+  min-height 100%
+
+/* Override foundation, otherwise, there is a scrollbar */
+@media only screen
+  [class*="block-grid-"]
+    margin: 0
+
+.wlt-content
+  border 1px solid #AAA
+  border-bottom 1px solid #888
+  padding 15px 15px 0 15px
+  margin-bottom 15px
+  background-color #FBFBFB
+  box-shadow 2px 2px 2px #AAA
+  border-radius 3px
+
+a.wlt-edit,
+a.wlt-remove
+  color #333
+  position absolute
+  right 10px
+  padding 5px 10px
+  font-size small
+  display none
+
+li.button:hover a.wlt-edit,
+li.button:hover a.wlt-remove
+  display block
+
+a.wlt-edit
+  top 5px
+
+a.wlt-remove
+  top 30px
+
+a.wlt-edit:hover,
+a.wlt-remove:hover
+  color #fff
+  border-radius 3px
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 2px #aaa;
+
+a.wlt-edit:hover
+  background-color #2ba6cb
+
+/* -------------------
+    Buttons
+   ------------------- */
+
+.button
+  background-color #2a8bcb
+  border none
+
+.button:hover
+  background-color #1d6fa6
+
+a.wlt-remove:hover,
+.button.alert
+  background-color #d3413b
+
+.button.alert:hover
+  background-color #b52c26
+
+.button.success
+  background-color #23ae89
+
+.button.success:hover
+  background-color #1c8c6e
+
+/* -------------------
+    Alerts
+   ------------------- */
+
+.alert-box
+  border-color #9cb4c5
+  color #305d8c
+  background #d6dde7
+
+.alert-box.success
+  background-color #dff0d8
+  border-color #d6e9c6
+  color #3c763d
+
+/* -------------------
+    Progress bar
+   ------------------- */
+
+#iron-router-progress
+  background-color #2c3e50
+  box-shadow 0 0 5px #2c3e50
+
+#iron-router-progress.spinner:before
+  border-color #2c3e50

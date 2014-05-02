@@ -4,5 +4,12 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
-insecure
+jquery
+underscore
+handlebar-helpers
+iron-router
+iron-router-progress
+collection2
+stylus
+foundation
+font-awesome
