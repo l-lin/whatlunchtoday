@@ -83,9 +83,10 @@ Template.home.events({
         event.preventDefault();
     },
     'click .wlt-resto .wlt-remove': function(event) {
-        var restoName = this.name;
-        if (restoName) {
-            var resto = RestoList.findOne({name: restoName});
+        var me = UserList.currentUser.get(),
+            restoName = this.name;
+        if (restoName && me) {
+            var resto = RestoList.findOne({name: restoName, groupName: me.groupName});
             if (resto) {
                 RestoList.remove(resto._id);
             }
@@ -126,14 +127,15 @@ Template.home.events({
             $restoFormName = $restoForm.find('input[type="text"]'),
             $restoFormType = $restoForm.find('input[name="formType"]'),
             $restoFormPrevValue = $restoForm.find('input[name="prevValue"]'),
-            me = Router.current().data().currentUser;;
+            me = Router.current().data().currentUser;
+        debugger;
         var restoName = $restoFormName.val();
         if (restoName && me) {
             var resto = RestoList.findOne({name: restoName});
             if (!resto) {
                 switch ($restoFormType.val()) {
                     case FORM_TYPE_MODIFY:
-                        var prevResto = RestoList.findOne({name: $restoFormPrevValue.val()});
+                        var prevResto = RestoList.findOne({name: $restoFormPrevValue.val(), groupName: me.groupName});
                         if (prevResto) {
                             RestoList.update(prevResto._id, {$set: {name: restoName}});
                         }
