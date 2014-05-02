@@ -4,6 +4,7 @@ var LOGIN_QUOTE = 'What\'s my name again?',
     HOME_QUOTE = 'Let\'s go to... ',
     NOT_FOUND_QUOTE = 'I think you are lost...',
     QUOTE = 'Mmm... Donuts?';
+
 Template.header.helpers({
     quote: function () {
         if (Router.current().data()) {
@@ -16,6 +17,23 @@ Template.header.helpers({
                 case 'ABOUT':
                     return ABOUT_QUOTE;
                 case 'HOME':
+//                    var me = Router.current().data().currentUser;
+//                    if (me) {
+//                        var mostVote = MostVote.find();
+//                        debugger;
+//                        if (mostVote) {
+//                            return HOME_QUOTE + mostVote.restoName + '!!!';
+//                        }
+//                        // Aggregate not supported for Minimongo (See red note http://docs.meteor.com/#count)
+////                        var voteList = VoteList.find({groupName: me.groupName, date: today()});
+////                        if (voteList) {
+////                            var mostVote = _.chain(voteList).countBy().pairs().max(_.last).head().value();
+////                            if (mostVote) {
+////                                return HOME_QUOTE + mostVote.restoName + '!!!';
+////                            }
+////                        }
+//                    }
+//                    return QUOTE;
                     var me = Router.current().data().currentUser;
                     if (me) {
                         var chosenResto = RestoList.findOne({groupName: me.groupName}, {sort: {score: -1}});

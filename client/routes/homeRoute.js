@@ -7,7 +7,13 @@ Router.map(function () {
         path: '/',
         controller: HomeController,
         waitOn: function () {
-            return [Meteor.subscribe('userList'), Meteor.subscribe('groupList'), Meteor.subscribe('restoList')];
+            return [
+                Meteor.subscribe('userList'),
+                Meteor.subscribe('groupList'),
+                Meteor.subscribe('restoList'),
+                Meteor.subscribe('voteList'),
+                Meteor.subscribe('mostVote')
+            ];
         },
         data: function () {
             return {

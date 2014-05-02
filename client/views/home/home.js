@@ -1,6 +1,7 @@
 var FORM_TYPE_CREATE = 'Create',
     FORM_TYPE_MODIFY = 'Modify',
-    SESSION_SEARCH_RESTO_KEY = 'searchRestoName';
+    SESSION_SEARCH_RESTO_KEY = 'searchRestoName',
+    NB_MAX_VOTES = 5;
 
 Template.home.rendered = function() {
     if(!this._rendered) {
@@ -45,9 +46,9 @@ Template.home.helpers({
         }
         return null;
     },
-    chosenResto: function() {
+    nbVotesLeft: function() {
         var me = Router.current().data().currentUser;
-        return me ? RestoList.findOne({groupName: me.groupName}, {sort: {score: -1}}) : null;
+        return me ? NB_MAX_VOTES - VoteList.find({userName: me.name, groupName: me.groupName, date: today()}).count() : 0;
     }
 });
 
@@ -58,7 +59,14 @@ Template.home.events({
         if (restoName && me) {
             var resto = RestoList.findOne({groupName: me.groupName, name: restoName});
             if (resto) {
-                RestoList.update(resto._id, {$inc: {score: 1}});
+                if (NB_MAX_VOTES - VoteList.find({userName: me.name, groupName: me.groupName, date: today()}).count() > 0) {
+                    VoteList.insert({
+                        userName: me.name,
+                        groupName: me.groupName,
+                        restoName: restoName,
+                        date: today()
+                    });
+                }
             }
         }
         event.preventDefault();
