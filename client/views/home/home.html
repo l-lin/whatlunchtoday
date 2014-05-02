@@ -1,0 +1,66 @@
+<template name="home">
+    {{#if show }}
+    <article class="wlt-home">
+        <div class="alert-box">
+            <div class="row">
+                <div class="wlt-home-choice small-10 columns">
+                    <h3>{{ currentGroup.name }}</h3>
+                </div>
+                <div class="small-2 columns right">
+                    <h3>{{ nbVotesLeft }}&nbsp;<i data-tooltip class="tip-top fa fa-flag" title="vote(s)"></i>&nbsp;left</h3>
+                </div>
+            </div>
+        </div>
+        <section class="row wlt-home-content">
+            <section class="large-2 columns wlt-home-user-list hide-for-small-only">
+                <div class="column">
+                    <h3><i class="fa fa-user"></i>&nbsp;Users</h3>
+                </div>
+                <div class="column">
+                    <ul class="small-block-grid-1 wlt-home-user">
+                        <li class="wlt-current-user"><i class="fa fa-chevron-right"></i>&nbsp;{{ currentUser.name }}</li>
+                        {{#each userList }}
+                        <li>{{ name }}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </section>
+            <section class="large-10 columns wlt-content">
+                <header class="row">
+                    <div class="wlt-resto-search large-10 columns">
+                        <input type="text" name="search" placeholder="Search" />
+                    </div>
+                    <div class="large-2 columns">
+                        <button data-tooltip class="tip-top button wlt-resto-create" title="Add a restaurant"><i class="fa fa-plus-square"></i></button>
+                    </div>
+                </header>
+                <article class="row wlt-resto-form">
+                    <form name="restoForm">
+                        <section class="small-9 columns">
+                            <input type="text" placeholder="Resto name" value="" />
+                            <input type="hidden" name="formType" value="" />
+                            <input type="hidden" name="prevValue" value="" />
+                        </section>
+                        <section class="small-3 columns">
+                            <button type="reset" class="wlt-cancel right alert button">Cancel</button>
+                            <button type="submit" class="right success button">Ok</button>
+                        </section>
+                    </form>
+                </article>
+                <article class="columns wlt-resto-list">
+                    <ul class="small-block-grid-2 large-block-grid-3">
+                        {{#each restoList }}
+                        <li class="wlt-resto large secondary button">
+                            {{ name }}
+                            {{> score resto }}
+                            <a href="#" class="text-primary wlt-edit" data-name="{{ name }}"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="text-primary wlt-remove" data-name="{{ name }}"><i class="fa fa-trash-o"></i></a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </article>
+            </section>
+        </section>
+    </article>
+    {{/if}}
+</template>

@@ -1,5 +1,10 @@
 {
   "packages": {
+    "iron-router": {},
+    "handlebar-helpers": {},
+    "iron-router-progress": {},
+    "collection2": {},
+    "foundation": {},
     "font-awesome": {}
   }
 }

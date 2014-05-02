@@ -1,0 +1,27 @@
+<template name="groupList">
+    {{#if show }}
+    <article class="wlt-group-list row">
+        <ul class="small-block-grid-2 large-block-grid-3 button-group">
+            {{#each groupList}}
+            <li class="wlt-group large secondary button" data-name="{{ name }}">
+                {{ name }}
+                <a href="#" class="text-primary wlt-edit" data-name="{{ name }}"><i class="fa fa-pencil"></i></a>
+                <a href="#" class="text-primary wlt-remove" data-name="{{ name }}"><i class="fa fa-trash-o"></i></a>
+            </li>
+            {{/each}}
+        </ul>
+    </article>
+    <article class="row">
+        <button class="wlt-group-create large button expand">Can't find your group? Create one!</button>
+    </article>
+    <article class="row wlt-content wlt-group-form">
+        <form name="groupForm">
+            <input class="" type="text" name="name" placeholder="Group name"/>
+            <input type="hidden" name="formType" value="" />
+            <input type="hidden" name="prevValue" value="" />
+            <button type="reset" class="wlt-cancel right alert button">Cancel</button>
+            <button type="submit" class="right success button">Ok</button>
+        </form>
+    </article>
+    {{/if}}
+</template>
