@@ -1,8 +1,11 @@
 # What Lunch Today
 
 > Me: What should we eat for lunch today?
+
 > Colleague 1: Dunno
+
 > Colleague 2: Whatever
+
 > 10 minutes pass and we still don't know what to eat...
 
 This application will **SAVE** you 10 minutes a day (at least for indecisive people like me)!
@@ -34,7 +37,7 @@ This project is build with:
 * [Iron router progress](https://github.com/Multiply/iron-router-progress)
 * [Font awesome](http://fortawesome.github.io/Font-Awesome)
 
-If you have any suggestion, feel free to submit a request. I don't bite!
+If you have any suggestion, feel free to submit a request. I don't bite, I promise!
 
 # Getting involved
 
@@ -42,11 +45,15 @@ If you wish to contribute for this project, I am using [Git Flow](https://github
 
 ## Getting started
 
+You will need to install [Meteor](http://www.meteor.com) and [Meteorite](https://github.com/oortcloud/meteorite/).
+Then to install the project:
+
 ```
-# Assuming meteor and meteorite are already installed...
-cd /path/to/whatlunchtoday/
-mrt install
-meteor
+$ git clone https://github.com/l-lin/whatlunchtoday.git
+$ cd whatlunchtoday
+$ mrt install
+$ meteor reset
+$ meteor
 ```
 
 Access to [http://localhost:3000](http://localhost:3000)
@@ -67,7 +74,7 @@ client/ 				# Client folder
 	lib/                # Library files that get executed first
     routes/             # All routes(*)
     startup/            # Javascript files on Meteor.startup()
-    stylesheets         # LESS files
+    stylesheets         # STYLUS files
     subscriptions/      # Collection subscriptions(*)
     modules/            # Meant for components, such as form and more(*)
 	views/			    # Contains all views(*)
@@ -76,7 +83,6 @@ model/  				# Model files, for each Meteor.Collection(*)
 private/                # Private files
 public/                 # Public files
 server/					# Server folder
-    fixtures/           # Meteor.Collection fixtures defined
     lib/                # Server side library folder
     publications/       # Collection publications(*)
     startup/            # On server startup
