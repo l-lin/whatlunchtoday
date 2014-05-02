@@ -93,5 +93,9 @@ wlt.bat  # Command line tool for windows
 
 (*) = the command line tool creates files in these folders
 
-## License
+## Why did I not use Meteor User management
+
+Simply because I wanted the users to use this application fairly easily without the burden to subscribe to any service.
+
+# License
 [MIT Licence](http://en.wikipedia.org/wiki/MIT_License)

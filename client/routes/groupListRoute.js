@@ -7,7 +7,10 @@ Router.map(function () {
         path: '/group',
         controller: GroupListController,
         waitOn: function () {
-            return [Meteor.subscribe('userList'), Meteor.subscribe('groupList'), Meteor.subscribe('restoList')];
+            return [
+                Meteor.subscribe('groupList'),
+                Meteor.subscribe('group')
+            ];
         },
         data: function () {
             return {

@@ -1,3 +1,2 @@
 Meteor.subscribe('voteList');
-
-Meteor.subscribe('mostVote');
+Meteor.subscribe('voteByGroupName');

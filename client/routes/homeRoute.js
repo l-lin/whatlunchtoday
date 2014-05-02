@@ -9,10 +9,13 @@ Router.map(function () {
         waitOn: function () {
             return [
                 Meteor.subscribe('userList'),
+                Meteor.subscribe('user'),
                 Meteor.subscribe('groupList'),
+                Meteor.subscribe('group'),
                 Meteor.subscribe('restoList'),
+                Meteor.subscribe('resto'),
                 Meteor.subscribe('voteList'),
-                Meteor.subscribe('mostVote')
+                Meteor.subscribe('voteByGroupName')
             ];
         },
         data: function () {

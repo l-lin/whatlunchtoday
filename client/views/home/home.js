@@ -1,8 +1,3 @@
-var FORM_TYPE_CREATE = 'Create',
-    FORM_TYPE_MODIFY = 'Modify',
-    SESSION_SEARCH_RESTO_KEY = 'searchRestoName',
-    NB_MAX_VOTES = 5;
-
 Template.home.rendered = function() {
     if(!this._rendered) {
         this._rendered = true;

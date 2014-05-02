@@ -1,6 +1,3 @@
-var FORM_TYPE_CREATE = 'Create',
-    FORM_TYPE_MODIFY = 'Modify';
-
 Template.groupList.helpers({
     show: function() {
         var me = Router.current().data().currentUser;

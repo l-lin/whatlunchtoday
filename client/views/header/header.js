@@ -17,27 +17,20 @@ Template.header.helpers({
                 case 'ABOUT':
                     return ABOUT_QUOTE;
                 case 'HOME':
-//                    var me = Router.current().data().currentUser;
-//                    if (me) {
-//                        var mostVote = MostVote.find();
-//                        debugger;
-//                        if (mostVote) {
-//                            return HOME_QUOTE + mostVote.restoName + '!!!';
-//                        }
-//                        // Aggregate not supported for Minimongo (See red note http://docs.meteor.com/#count)
-////                        var voteList = VoteList.find({groupName: me.groupName, date: today()});
-////                        if (voteList) {
-////                            var mostVote = _.chain(voteList).countBy().pairs().max(_.last).head().value();
-////                            if (mostVote) {
-////                                return HOME_QUOTE + mostVote.restoName + '!!!';
-////                            }
-////                        }
-//                    }
-//                    return QUOTE;
                     var me = Router.current().data().currentUser;
                     if (me) {
-                        var chosenResto = RestoList.findOne({groupName: me.groupName}, {sort: {score: -1}});
-                        return chosenResto ? HOME_QUOTE + chosenResto.name + '!!!' : QUOTE;
+//                        var voteListByGroupName = VoteList.findOne({groupName: me.groupName});
+                        var voteListByGroupName = VoteList.find({groupName: me.groupName}).fetch(),
+                            mapVote = {};
+                        _.each(voteListByGroupName, function(vote) {
+                            if (!mapVote[vote.restoName]) {
+                                mapVote[vote.restoName] = 1;
+                            } else {
+                                mapVote[vote.restoName]++;
+                            }
+                        });
+                        var chosenResto = _.chain(mapVote).pairs().max(_.last).head().value();
+                        return chosenResto ? HOME_QUOTE + chosenResto + '!!!' : QUOTE;
                     }
                     return QUOTE;
             }
