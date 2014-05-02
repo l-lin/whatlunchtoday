@@ -33,17 +33,33 @@ Template.home.helpers({
         var me = Router.current().data().currentUser,
             searchRestoName = Session.get(SESSION_SEARCH_RESTO_KEY);
         if (me) {
+            // Fetch resto list
+            var restoList = [];
             if (searchRestoName) {
                 var regex = new RegExp(searchRestoName, 'i');
-                return RestoList.find({groupName: me.groupName, name: regex}, {sort: {score: -1}});
+                restoList = RestoList.find({groupName: me.groupName, name: regex}).fetch();
+            } else {
+                restoList = RestoList.find({groupName: me.groupName}).fetch();
             }
-            return RestoList.find({groupName: me.groupName}, {sort: {score: -1}});
+            // Fetch votes
+            var mapVotes = buildMapVotes(me.groupName);
+            if (mapVotes) {
+                // Sort resto list by number of votes
+                restoList = _.sortBy(restoList, function(resto) {
+                    var vote = mapVotes[resto.name];
+                    return  vote ? vote : 0;
+                }).reverse();
+            }
+            return restoList;
         }
         return null;
     },
     nbVotesLeft: function() {
         var me = Router.current().data().currentUser;
         return me ? NB_MAX_VOTES - VoteList.find({userName: me.name, groupName: me.groupName, date: today()}).count() : 0;
+    },
+    resto: function() {
+        return this;
     }
 });
 
@@ -123,7 +139,7 @@ Template.home.events({
                         }
                         break;
                     case FORM_TYPE_CREATE:
-                        RestoList.insert({name: restoName, score: 0, groupName: me.groupName});
+                        RestoList.insert({name: restoName, groupName: me.groupName});
                         break;
                 }
                 $restoFormName.val('');

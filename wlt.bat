@@ -72,9 +72,9 @@ exit /b
   echo ^<template name="%1"^> >> client\views\%1\%1.html
   echo     ^<p^>Template %1^</p^> >> client\views\%1\%1.html
   echo ^</template^> >> client\views\%1\%1.html
-  echo Template['%1'].helpers({ >> client\views\%1\%1.js
+  echo Template.%1.helpers({ >> client\views\%1\%1.js
   echo }); >> client\views\%1\%1.js
-  echo Template['%1'].events({ >> client\views\%1\%1.js
+  echo Template.%1.events({ >> client\views\%1\%1.js
   echo }); >> client\views\%1\%1.js
 
   :: Succesful
@@ -214,13 +214,11 @@ exit /b
   echo     ^<p^>Template %1^</p^> >> client\modules\%1\%1.html
   echo ^</template^> >> client\modules\%1\%1.html
 
-  echo Template['%1'].helpers({ >> client\modules\%1\%1.js
+  echo Template.%1.helpers({ >> client\modules\%1\%1.js
   echo }); >> client\modules\%1\%1.js
   echo "" >> client\modules\%1\%1.js
-  echo Template['%1'].events({ >> client\modules\%1\%1.js
+  echo Template.%1.events({ >> client\modules\%1\%1.js
   echo }); >> client\modules\%1\%1.js
-
-  echo @import '../../stylesheets/variables.styl'; >> client\modules\%1\%1.styl
 
   :: Succesful
   echo Successfully created a module called %1

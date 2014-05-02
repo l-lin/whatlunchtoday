@@ -19,16 +19,7 @@ Template.header.helpers({
                 case 'HOME':
                     var me = Router.current().data().currentUser;
                     if (me) {
-//                        var voteListByGroupName = VoteList.findOne({groupName: me.groupName});
-                        var voteListByGroupName = VoteList.find({groupName: me.groupName}).fetch(),
-                            mapVote = {};
-                        _.each(voteListByGroupName, function(vote) {
-                            if (!mapVote[vote.restoName]) {
-                                mapVote[vote.restoName] = 1;
-                            } else {
-                                mapVote[vote.restoName]++;
-                            }
-                        });
+                        var mapVote = buildMapVotes(me.groupName);
                         var chosenResto = _.chain(mapVote).pairs().max(_.last).head().value();
                         return chosenResto ? HOME_QUOTE + chosenResto + '!!!' : QUOTE;
                     }

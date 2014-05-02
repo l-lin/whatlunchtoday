@@ -25,10 +25,10 @@ case ${1} in
         echo "    <p>Template ${2}</p>" >> client/views/${2}/${2}.html
         echo "</template>"              >> client/views/${2}/${2}.html
         echo ""                         >> client/views/${2}/${2}.html
-        echo "Template['${2}'].helpers({"  >> client/views/${2}/${2}.js
+        echo "Template.${2}.helpers({"  >> client/views/${2}/${2}.js
         echo "});"                      >> client/views/${2}/${2}.js
         echo ""                         >> client/views/${2}/${2}.js
-        echo "Template['${2}'].events({"   >> client/views/${2}/${2}.js
+        echo "Template.${2}.events({"   >> client/views/${2}/${2}.js
         echo "});"                      >> client/views/${2}/${2}.js
         echo ""                         >> client/views/${2}/${2}.js
         echo ""                                             >> client/views/${2}/${2}.styl
@@ -116,14 +116,13 @@ case ${1} in
         echo "</template>"              >> client/modules/${2}/${2}.html
         echo ""                         >> client/modules/${2}/${2}.html
 
-        echo "Template['${2}'].helpers({"  >> client/modules/${2}/${2}.js
+        echo "Template.${2}.helpers({"  >> client/modules/${2}/${2}.js
         echo "});"                      >> client/modules/${2}/${2}.js
         echo ""                         >> client/modules/${2}/${2}.js
-        echo "Template['${2}'].events({"   >> client/modules/${2}/${2}.js
+        echo "Template.${2}.events({"   >> client/modules/${2}/${2}.js
         echo "});"                      >> client/modules/${2}/${2}.js
         echo ""                         >> client/modules/${2}/${2}.js
 
-        echo "@import '../../stylesheets/variables.styl'; "  >> client/modules/${2}/${2}.styl
         echo ""                                             >> client/modules/${2}/${2}.styl
 
         # Succesful

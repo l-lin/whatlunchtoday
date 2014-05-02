@@ -52,7 +52,7 @@
                         {{#each restoList }}
                         <li class="wlt-resto large secondary button">
                             {{ name }}
-                            <span class="wlt-score">{{ score }}</span>
+                            {{> score resto }}
                             <a href="#" class="text-primary wlt-edit" data-name="{{ name }}"><i class="fa fa-pencil"></i></a>
                             <a href="#" class="text-primary wlt-remove" data-name="{{ name }}"><i class="fa fa-trash-o"></i></a>
                         </li>

@@ -3,9 +3,6 @@ RestoList = new Meteor.Collection2('restoList', {
         name: {
             type: String
         },
-        score: {
-            type: Number
-        },
         groupName: {
             type: String
         }
@@ -50,7 +47,6 @@ function insertDummyRestoList(restoList, groupName) {
     for (var i = 0; i < restoList.length; i++) {
         RestoList.insert({
             name: restoList[i].name,
-            score: 0,
             groupName: groupName
         });
     }

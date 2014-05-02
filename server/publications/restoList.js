@@ -5,3 +5,7 @@ Meteor.publish('restoList', function () {
 Meteor.publish('resto', function(restoName) {
     return RestoList.find({name: restoName});
 });
+
+Meteor.publish('searchResto', function(groupName, restoNameRegex) {
+    return RestoList.find({groupName: groupName, name: restoNameRegex});
+});

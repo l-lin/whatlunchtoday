@@ -14,6 +14,7 @@ Router.map(function () {
                 Meteor.subscribe('group'),
                 Meteor.subscribe('restoList'),
                 Meteor.subscribe('resto'),
+                Meteor.subscribe('searchResto'),
                 Meteor.subscribe('voteList'),
                 Meteor.subscribe('voteByGroupName')
             ];
