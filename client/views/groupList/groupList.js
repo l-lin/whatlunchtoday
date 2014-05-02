@@ -28,6 +28,7 @@ Template.groupList.events({
             var group = GroupList.findOne({name: groupName});
             if (group) {
                 Meteor.call('removeRestoListByGroupName', groupName);
+                Meteor.call('removeVoteListByGroupName', groupName);
                 GroupList.remove(group._id);
             }
         }
@@ -75,6 +76,8 @@ Template.groupList.events({
                     case FORM_TYPE_MODIFY:
                         var prevGroup = GroupList.findOne({name: $groupFormPrevValue.val()});
                         if (prevGroup) {
+                            Meteor.call('updateRestoListByGroupName', prevGroup.name, groupName);
+                            Meteor.call('updateVoteListByGroupName', prevGroup.name, groupName);
                             GroupList.update(prevGroup._id, {$set: {name: groupName}});
                         }
                         break;

@@ -1,12 +1,12 @@
-Template.home.rendered = function() {
-    if(!this._rendered) {
+Template.home.rendered = function () {
+    if (!this._rendered) {
         this._rendered = true;
         $('.wlt-resto-search').find('input[type="text"]').focus();
     }
 };
 
 Template.home.helpers({
-    show: function() {
+    show: function () {
         var me = Router.current().data().currentUser;
         if (!me || !me.groupName) {
             Router.go('login');
@@ -18,18 +18,18 @@ Template.home.helpers({
         }
         return true;
     },
-    currentUser: function() {
+    currentUser: function () {
         return Router.current().data().currentUser;
     },
-    userList: function() {
+    userList: function () {
         var me = Router.current().data().currentUser;
         return me ? UserList.find({groupName: me.groupName, name: {$ne: me.name}}, {sort: {name: 1}}) : null;
     },
-    currentGroup: function() {
+    currentGroup: function () {
         var me = Router.current().data().currentUser;
         return me ? GroupList.findOne({name: me.groupName}) : null;
     },
-    restoList: function() {
+    restoList: function () {
         var me = Router.current().data().currentUser,
             searchRestoName = Session.get(SESSION_SEARCH_RESTO_KEY);
         if (me) {
@@ -45,7 +45,7 @@ Template.home.helpers({
             var mapVotes = buildMapVotes(me.groupName);
             if (mapVotes) {
                 // Sort resto list by number of votes
-                restoList = _.sortBy(restoList, function(resto) {
+                restoList = _.sortBy(restoList,function (resto) {
                     var vote = mapVotes[resto.name];
                     return  vote ? vote : 0;
                 }).reverse();
@@ -54,17 +54,17 @@ Template.home.helpers({
         }
         return null;
     },
-    nbVotesLeft: function() {
+    nbVotesLeft: function () {
         var me = Router.current().data().currentUser;
         return me ? NB_MAX_VOTES - VoteList.find({userName: me.name, groupName: me.groupName, date: today()}).count() : 0;
     },
-    resto: function() {
+    resto: function () {
         return this;
     }
 });
 
 Template.home.events({
-    'click .wlt-resto': function(event) {
+    'click .wlt-resto': function (event) {
         var restoName = this.name,
             me = Router.current().data().currentUser;
         if (restoName && me) {
@@ -82,19 +82,20 @@ Template.home.events({
         }
         event.preventDefault();
     },
-    'click .wlt-resto .wlt-remove': function(event) {
+    'click .wlt-resto .wlt-remove': function (event) {
         var me = UserList.currentUser.get(),
             restoName = this.name;
         if (restoName && me) {
             var resto = RestoList.findOne({name: restoName, groupName: me.groupName});
             if (resto) {
+                Meteor.call('removeVoteListByRestoName', me.groupName, restoName);
                 RestoList.remove(resto._id);
             }
         }
         event.stopPropagation();
         event.preventDefault();
     },
-    'click .wlt-resto .wlt-edit': function(event) {
+    'click .wlt-resto .wlt-edit': function (event) {
         var restoName = this.name;
         if (restoName) {
             var $restoForm = $('.wlt-resto-form'),
@@ -110,7 +111,7 @@ Template.home.events({
         event.stopPropagation();
         event.preventDefault();
     },
-    'click .wlt-resto-create': function(event) {
+    'click .wlt-resto-create': function (event) {
         var $restoForm = $('.wlt-resto-form'),
             $restoFormName = $restoForm.find('input[type="text"]'),
             $restoFormType = $restoForm.find('input[name="formType"]'),
@@ -122,21 +123,21 @@ Template.home.events({
         $restoFormName.focus();
         event.preventDefault();
     },
-    'submit': function() {
+    'submit': function () {
         var $restoForm = $('.wlt-resto-form'),
             $restoFormName = $restoForm.find('input[type="text"]'),
             $restoFormType = $restoForm.find('input[name="formType"]'),
             $restoFormPrevValue = $restoForm.find('input[name="prevValue"]'),
             me = Router.current().data().currentUser;
-        debugger;
         var restoName = $restoFormName.val();
         if (restoName && me) {
-            var resto = RestoList.findOne({name: restoName});
+            var resto = RestoList.findOne({name: restoName, groupName: me.groupName});
             if (!resto) {
                 switch ($restoFormType.val()) {
                     case FORM_TYPE_MODIFY:
                         var prevResto = RestoList.findOne({name: $restoFormPrevValue.val(), groupName: me.groupName});
                         if (prevResto) {
+                            Meteor.call('updateVoteListByRestoName', me.groupName, $restoFormPrevValue.val(), restoName);
                             RestoList.update(prevResto._id, {$set: {name: restoName}});
                         }
                         break;
@@ -152,14 +153,14 @@ Template.home.events({
         }
         return false;
     },
-    'click .wlt-resto-form .wlt-cancel': function(event) {
+    'click .wlt-resto-form .wlt-cancel': function (event) {
         var $restoForm = $('.wlt-resto-form'),
             $restoFormName = $restoForm.find('input[type="text"]');
         $restoForm.hide();
         $restoFormName.val('');
         event.preventDefault();
     },
-    'keyup .wlt-resto-search input[type=text]': function(event) {
+    'keyup .wlt-resto-search input[type=text]': function (event) {
         Session.set(SESSION_SEARCH_RESTO_KEY, event.target.value);
     }
 });

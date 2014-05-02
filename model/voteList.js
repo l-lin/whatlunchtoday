@@ -28,3 +28,29 @@ VoteList.allow({
         return true;
     }
 });
+
+Meteor.methods({
+    updateVoteListByGroupName: function(prevGroupName, newGroupName) {
+        VoteList.update(
+            {groupName: prevGroupName},
+            {$set: {groupName: newGroupName}},
+            {multi: true}
+        );
+    },
+    removeVoteListByGroupName: function(groupName) {
+        VoteList.remove({groupName: groupName});
+    },
+    updateVoteListByRestoName: function(groupName, prevRestoName, newRestoName) {
+        VoteList.update(
+            {restoName: prevRestoName,groupName: groupName},
+            {$set: {restoName: newRestoName}},
+            {multi: true}
+        );
+    },
+    removeVoteListByRestoName: function(groupName, restoName) {
+        VoteList.remove({
+            groupName: groupName,
+            restoName: restoName
+        });
+    }
+});

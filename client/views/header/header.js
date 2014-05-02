@@ -1,7 +1,7 @@
 var LOGIN_QUOTE = 'What\'s my name again?',
     GROUP_QUOTE = 'Who should I eat with?',
     ABOUT_QUOTE = 'Bite my shiny metal ass!',
-    HOME_QUOTE = 'Let\'s go to... ',
+    HOME_QUOTE = 'Youhou! ',
     NOT_FOUND_QUOTE = 'I think you are lost...',
     QUOTE = 'Mmm... Donuts?';
 

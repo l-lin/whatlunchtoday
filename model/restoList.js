@@ -60,5 +60,12 @@ Meteor.methods({
     },
     removeRestoListByGroupName: function(groupName) {
         RestoList.remove({groupName: groupName});
+    },
+    updateRestoListByGroupName: function(prevGroupName, newGroupName) {
+        RestoList.update(
+            {groupName: prevGroupName},
+            {$set: {groupName: newGroupName}},
+            {multi: true}
+        );
     }
 });
