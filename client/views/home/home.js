@@ -1,10 +1,3 @@
-Template.home.rendered = function () {
-    if (!this._rendered) {
-        this._rendered = true;
-        $('.wlt-resto-search').find('input[type="text"]').focus();
-    }
-};
-
 Template.home.helpers({
     show: function () {
         var me = Router.current().data().currentUser;
@@ -174,9 +167,13 @@ Template.home.events({
 });
 
 Template.home.rendered = function() {
-    var cookie = $.cookie('joyride');
-    if (!cookie) {
-        $(document).foundation('joyride', 'start');
-        $.cookie('joyride', 'rippen', { expires: 365 });
+    if (!this._rendered) {
+        var cookie = $.cookie('joyride');
+        if (!cookie) {
+            $(document).foundation('joyride', 'start');
+            $.cookie('joyride', 'rippen', { expires: 365 });
+        }
+        this._rendered = true;
+        $('.wlt-resto-search').find('input[type="text"]').focus();
     }
 };
