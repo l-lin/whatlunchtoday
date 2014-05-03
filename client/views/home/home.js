@@ -177,6 +177,6 @@ Template.home.rendered = function() {
     var cookie = $.cookie('joyride');
     if (!cookie) {
         $(document).foundation('joyride', 'start');
-        $.cookie('joyride', 'rippen');
+        $.cookie('joyride', 'rippen', { expires: 365 });
     }
 };
