@@ -1,10 +1,3 @@
-Template.home.rendered = function () {
-    if (!this._rendered) {
-        this._rendered = true;
-        $('.wlt-resto-search').find('input[type="text"]').focus();
-    }
-};
-
 Template.home.helpers({
     show: function () {
         var me = Router.current().data().currentUser;
@@ -21,9 +14,17 @@ Template.home.helpers({
     currentUser: function () {
         return Router.current().data().currentUser;
     },
-    userList: function () {
+    voteUserList: function () {
         var me = Router.current().data().currentUser;
-        return me ? UserList.find({groupName: me.groupName, name: {$ne: me.name}}, {sort: {name: 1}}) : null;
+        if (me) {
+            var voteList = VoteList.find({groupName: me.groupName, date: today()}, {sort: {userName: 1}}).fetch();
+            if (voteList) {
+                return _.uniq(voteList, function(vote) {
+                    return vote.userName;
+                });
+            }
+        }
+        return [];
     },
     currentGroup: function () {
         var me = Router.current().data().currentUser;
@@ -164,3 +165,15 @@ Template.home.events({
         Session.set(SESSION_SEARCH_RESTO_KEY, event.target.value);
     }
 });
+
+Template.home.rendered = function() {
+    if (!this._rendered) {
+        var cookie = $.cookie('joyride');
+        if (!cookie) {
+            $(document).foundation('joyride', 'start');
+            $.cookie('joyride', 'rippen', { expires: 365 });
+        }
+        this._rendered = true;
+        $('.wlt-resto-search').find('input[type="text"]').focus();
+    }
+};
