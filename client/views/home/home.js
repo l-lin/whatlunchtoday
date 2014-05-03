@@ -164,3 +164,11 @@ Template.home.events({
         Session.set(SESSION_SEARCH_RESTO_KEY, event.target.value);
     }
 });
+
+Template.home.rendered = function() {
+    var cookie = $.cookie('joyride');
+    if (!cookie) {
+        $(document).foundation('joyride', 'start');
+        $.cookie('joyride', 'rippen');
+    }
+};

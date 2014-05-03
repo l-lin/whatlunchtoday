@@ -3,10 +3,10 @@
     <article class="wlt-home">
         <div class="alert-box">
             <div class="row">
-                <div class="wlt-home-choice small-10 columns">
+                <div id="wlt-group" class="wlt-home-choice small-10 columns">
                     <h3>{{ currentGroup.name }}</h3>
                 </div>
-                <div class="small-2 columns right">
+                <div id="wlt-nb-votes" class="small-2 columns right">
                     <h3>{{ nbVotesLeft }}&nbsp;<i data-tooltip class="tip-top fa fa-flag" title="vote(s)"></i>&nbsp;left</h3>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                         </section>
                     </form>
                 </article>
-                <article class="columns wlt-resto-list">
+                <article id="wlt-resto-list" class="columns wlt-resto-list">
                     <ul class="small-block-grid-2 large-block-grid-3">
                         {{#each restoList }}
                         <li class="wlt-resto large secondary button">
@@ -62,5 +62,23 @@
             </section>
         </section>
     </article>
+
+    <ol class="joyride-list" data-joyride>
+        <li data-id="wlt-resto-list" data-text="Next" data-options="tipLocation:top">
+            <p>You can vote for the meal you want to eat for lunch.</p>
+        </li>
+        <li data-id="wlt-group" data-text="Next" data-options="tipLocation:bottom">
+            <p>This is the group you want to eat with.</p>
+        </li>
+        <li data-id="wlt-nb-votes" data-button="Next" data-options="tipLocation:bottom">
+            <p>You have 5 votes each day. You can vote to the same restaurant if you want to.</p>
+        </li>
+        <li data-id="wlt-quote" data-button="Next" data-options="tipLocation:bottom">
+            <p>This Homer Simpson will kindly tell you where to eat today.</p>
+        </li>
+        <li data-id="wlt-change-group" data-button="Ok! I got it!">
+            <p>You can always change group by clicking here.</p>
+        </li>
+    </ol>
     {{/if}}
 </template>

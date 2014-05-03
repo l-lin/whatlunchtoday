@@ -1,10 +1,10 @@
 <template name="header">
     <article class="wlt-header row {{ cssHeader }}">
-        <h1>{{ quote }}</h1>
+        <h1 id="wlt-quote">{{ quote }}</h1>
         {{#if showButtons }}
         <div class="wlt-header-buttons">
             <ul class="small-block-grid-2">
-                <li data-tooltip class="wlt-group-change button tip-bottom" title="Change group">
+                <li id="wlt-change-group" data-tooltip class="wlt-group-change button tip-bottom" title="Change group">
                     <i class="fa fa-group"></i>
                 </li>
                 <li class="wlt-logout alert button">
