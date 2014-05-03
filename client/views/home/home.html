@@ -14,13 +14,15 @@
         <section class="row wlt-home-content">
             <section class="large-2 columns wlt-home-user-list hide-for-small-only">
                 <div class="column">
-                    <h3><i class="fa fa-user"></i>&nbsp;Users</h3>
+                    <h4>Votes</h4>
                 </div>
                 <div class="column">
                     <ul class="small-block-grid-1 wlt-home-user">
-                        <li class="wlt-current-user"><i class="fa fa-chevron-right"></i>&nbsp;{{ currentUser.name }}</li>
-                        {{#each userList }}
-                        <li>{{ name }}</li>
+                        <li class="column wlt-current-user">
+                            <i class="fa fa-user"></i>&nbsp;{{ currentUser.name }}
+                        </li>
+                        {{#each voteUserList }}
+                        <li>{{ userName }}</li>
                         {{/each}}
                     </ul>
                 </div>

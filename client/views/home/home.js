@@ -21,9 +21,17 @@ Template.home.helpers({
     currentUser: function () {
         return Router.current().data().currentUser;
     },
-    userList: function () {
+    voteUserList: function () {
         var me = Router.current().data().currentUser;
-        return me ? UserList.find({groupName: me.groupName, name: {$ne: me.name}}, {sort: {name: 1}}) : null;
+        if (me) {
+            var voteList = VoteList.find({groupName: me.groupName, date: today()}, {sort: {userName: 1}}).fetch();
+            if (voteList) {
+                return _.uniq(voteList, function(vote) {
+                    return vote.userName;
+                });
+            }
+        }
+        return [];
     },
     currentGroup: function () {
         var me = Router.current().data().currentUser;
