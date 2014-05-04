@@ -87,15 +87,42 @@ server/					# Server folder
     publications/       # Collection publications(*)
     startup/            # On server startup
 tests/					# Test files, can be run with laika
-wlt		# Command line tool
-wlt.bat  # Command line tool for windows
+wlt						# Command line tool
+wlt.bat  				# Command line tool for windows
 ```
 
 (*) = the command line tool creates files in these folders
 
+## Data model
+
+The data model is quite simple and straightforward:
+
+| GroupList |
+| :-------: |
+| name      |
+| groupName |
+
+| RestoList |
+| :-------: |
+| name      |
+| groupName |
+
+| UserList  |
+| :-------: |
+| name      |
+| groupName |
+
+
+| VoteList  |
+| :-------: |
+| userName  |
+| groupName |
+| restoName |
+| date      |
 ## Why did I not use Meteor User management
 
 Simply because I wanted the users to use this application fairly easily without the burden to subscribe to any service.
 
 # License
+
 [MIT Licence](http://en.wikipedia.org/wiki/MIT_License)
