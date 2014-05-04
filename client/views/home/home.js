@@ -11,9 +11,6 @@ Template.home.helpers({
         }
         return true;
     },
-    currentUser: function () {
-        return Router.current().data().currentUser;
-    },
     voteUserList: function () {
         var me = Router.current().data().currentUser;
         if (me) {

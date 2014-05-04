@@ -47,6 +47,12 @@ Template.header.helpers({
             return '';
         }
         return 'wlt-header-not-found';
+    },
+    currentUser: function() {
+        if (Router.current().data()) {
+            return Router.current().data().currentUser;
+        }
+        return null;
     }
 });
 
