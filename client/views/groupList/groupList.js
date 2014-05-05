@@ -8,6 +8,17 @@ Template.groupList.helpers({
     },
     groupList: function() {
         return GroupList.find({}, {sort: {name: 1}});
+    },
+    group: function() {
+        return this;
+    }
+});
+
+Template.chosenResto.helpers({
+    chosenResto: function() {
+        var mapVote = buildMapVotes(this.name);
+        var chosenResto = _.chain(mapVote).pairs().max(_.last).head().value();
+        return chosenResto ? chosenResto : '&nbsp;';
     }
 });
 
