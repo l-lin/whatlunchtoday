@@ -7,7 +7,8 @@
       "iron-router-progress": {},
       "collection2": {},
       "foundation": {},
-      "font-awesome": {}
+      "font-awesome": {},
+      "typeahead": {}
     },
     "packages": {
       "iron-router": {
@@ -39,6 +40,11 @@
         "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
         "tag": "v4.0.3",
         "commit": "61e9361384347547ae144f8228faa4deffda23db"
+      },
+      "typeahead": {
+        "git": "https://github.com/sergeyt/meteor-typeahead.git",
+        "tag": "v0.0.8",
+        "commit": "3e83afe7bd3ba47a801cb7fec2bff4678aefd5dc"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

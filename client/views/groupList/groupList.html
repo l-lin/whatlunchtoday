@@ -1,5 +1,8 @@
 <template name="groupList">
     {{#if show }}
+    <article class="wlt-user-search row collapse">
+        {{> searchUser }}
+    </article>
     <article class="wlt-group-list row">
         <ul class="small-block-grid-2 large-block-grid-3 button-group">
             {{#each groupList}}
@@ -26,6 +29,17 @@
         </form>
     </article>
     {{/if}}
+</template>
+
+<template name="searchUser">
+    <div class="small-1 columns">
+        <span class="prefix"><i class="fa fa-user"></i></span>
+    </div>
+    <div class="small-11 columns">
+        <input class="wlt-user-search-input typeahead" type="text" name="searchUser" value="" placeholder="Search your lunch partners"
+               autocomplete="off" spellcheck="off"
+               data-source="searchUser" />
+    </div>
 </template>
 
 <template name="chosenResto">

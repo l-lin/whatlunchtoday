@@ -5,6 +5,7 @@
     "iron-router-progress": {},
     "collection2": {},
     "foundation": {},
-    "font-awesome": {}
+    "font-awesome": {},
+    "typeahead": {}
   }
 }
