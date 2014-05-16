@@ -11,6 +11,14 @@ Template.home.helpers({
         }
         return true;
     },
+    showCancelButton: function() {
+        var me = Router.current().data().currentUser;
+        if (me) {
+            var nbVotes = VoteList.find({groupName: me.groupName, date: today(), userName: me.name}).count();
+            return nbVotes > 0;
+        }
+        return false;
+    },
     voteUserList: function () {
         var me = Router.current().data().currentUser;
         if (me) {
@@ -55,9 +63,6 @@ Template.home.helpers({
     nbVotesLeft: function () {
         var me = Router.current().data().currentUser;
         return me ? NB_MAX_VOTES - VoteList.find({userName: me.name, groupName: me.groupName, date: today()}).count() : 0;
-    },
-    resto: function () {
-        return this;
     }
 });
 
@@ -160,6 +165,13 @@ Template.home.events({
     },
     'keyup .wlt-resto-search input[type=text]': function (event) {
         Session.set(SESSION_SEARCH_RESTO_KEY, event.target.value);
+    },
+    'click .wlt-home-cancel-votes': function(event) {
+        var me = Router.current().data().currentUser;
+        if (me) {
+            Meteor.call('removeVoteListByUserName', me.groupName, me.name);
+        }
+        event.preventDefault();
     }
 });
 
@@ -174,3 +186,13 @@ Template.home.rendered = function() {
         $('.wlt-resto-search').find('input[type="text"]').focus();
     }
 };
+
+Template.restoButton.helpers({
+    resto: function () {
+        return this;
+    },
+    showButtons: function() {
+        var nbVotes = VoteList.find({groupName: this.groupName, restoName: this.name, date: today()}).count();
+        return nbVotes === 0;
+    }
+});

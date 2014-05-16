@@ -3,11 +3,14 @@
     <article class="wlt-home">
         <div class="alert-box">
             <div class="row">
-                <div id="wlt-group" class="wlt-home-choice small-10 columns">
+                <div id="wlt-group" class="wlt-home-choice small-9 columns">
                     <h3>{{ currentGroup.name }}</h3>
                 </div>
-                <div id="wlt-nb-votes" class="small-2 columns right">
-                    <h3>{{ nbVotesLeft }}&nbsp;<i data-tooltip class="tip-top fa fa-flag" title="vote(s)"></i>&nbsp;left</h3>
+                <div id="wlt-nb-votes" class="small-3 columns right">
+                    <h3>
+                        {{ nbVotesLeft }}&nbsp;<i data-tooltip class="tip-top fa fa-flag" title="vote(s)"></i>&nbsp;left
+                        &nbsp;{{#if showCancelButton }}<a href="#" class="wlt-home-cancel-votes" title="Cancel my votes"><i class="fa fa-times"></i></a>{{/if}}
+                    </h3>
                 </div>
             </div>
         </div>
@@ -49,12 +52,7 @@
                 <article id="wlt-resto-list" class="columns wlt-resto-list">
                     <ul class="small-block-grid-2 large-block-grid-3">
                         {{#each restoList }}
-                        <li class="wlt-resto large secondary button">
-                            {{ name }}
-                            {{> score resto }}
-                            <a href="#" class="text-primary wlt-edit" data-name="{{ name }}"><i class="fa fa-pencil"></i></a>
-                            <a href="#" class="text-primary wlt-remove" data-name="{{ name }}"><i class="fa fa-trash-o"></i></a>
-                        </li>
+                        {{> restoButton }}
                         {{/each}}
                     </ul>
                 </article>
@@ -80,4 +78,15 @@
         </li>
     </ol>
     {{/if}}
+</template>
+
+<template name="restoButton">
+    <li class="wlt-resto large secondary button">
+        {{ name }}
+        {{> score resto }}
+        {{#if showButtons }}
+        <a href="#" class="text-primary wlt-edit" data-name="{{ name }}"><i class="fa fa-pencil"></i></a>
+        <a href="#" class="text-primary wlt-remove" data-name="{{ name }}"><i class="fa fa-trash-o"></i></a>
+        {{/if}}
+    </li>
 </template>
