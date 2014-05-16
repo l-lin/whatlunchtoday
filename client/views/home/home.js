@@ -74,6 +74,7 @@ Template.home.events({
             var resto = RestoList.findOne({groupName: me.groupName, name: restoName});
             if (resto) {
                 if (NB_MAX_VOTES - VoteList.find({userName: me.name, groupName: me.groupName, date: today()}).count() > 0) {
+                    Meteor.call('removeVoteListByUserNameAndNotInGroupName', me.name, me.groupName);
                     VoteList.insert({
                         userName: me.name,
                         groupName: me.groupName,
@@ -169,7 +170,7 @@ Template.home.events({
     'click .wlt-home-cancel-votes': function(event) {
         var me = Router.current().data().currentUser;
         if (me) {
-            Meteor.call('removeVoteListByUserName', me.groupName, me.name);
+            Meteor.call('removeVoteListByUserName', me.name);
         }
         event.preventDefault();
     }

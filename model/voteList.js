@@ -53,9 +53,15 @@ Meteor.methods({
             restoName: restoName
         });
     },
-    removeVoteListByUserName: function(groupName, userName) {
+    removeVoteListByUserName: function(userName) {
         VoteList.remove({
-            groupName: groupName,
+            userName: userName,
+            date: today()
+        });
+    },
+    removeVoteListByUserNameAndNotInGroupName: function(userName, groupName) {
+        VoteList.remove({
+            groupName: {$nin: [groupName]},
             userName: userName,
             date: today()
         });
