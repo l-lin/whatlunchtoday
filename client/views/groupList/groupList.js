@@ -118,6 +118,13 @@ Template.groupList.events({
     }
 });
 
+Template.groupButton.helpers({
+    showButtons: function() {
+        var nbVotes = VoteList.find({groupName: this.name, date: today()}).count();
+        return nbVotes === 0;
+    }
+});
+
 Template.searchUser.helpers({
     searchUser: function() {
         return (function() {

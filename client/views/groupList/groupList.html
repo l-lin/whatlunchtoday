@@ -6,13 +6,7 @@
     <article class="wlt-group-list row">
         <ul class="small-block-grid-2 large-block-grid-3 button-group">
             {{#each groupList}}
-            <li class="wlt-group large secondary button" data-name="{{ name }}">
-                <span class="wlt-group-name">{{ name }}</span>
-                <br />
-                <span class="wlt-chosen-resto">{{> chosenResto group }}</span>
-                <a href="#" class="text-primary wlt-edit" data-name="{{ name }}"><i class="fa fa-pencil"></i></a>
-                <a href="#" class="text-primary wlt-remove" data-name="{{ name }}"><i class="fa fa-trash-o"></i></a>
-            </li>
+            {{> groupButton }}
             {{/each}}
         </ul>
     </article>
@@ -29,6 +23,18 @@
         </form>
     </article>
     {{/if}}
+</template>
+
+<template name="groupButton">
+    <li class="wlt-group large secondary button" data-name="{{ name }}">
+        <span class="wlt-group-name">{{ name }}</span>
+        <br />
+        <span class="wlt-chosen-resto">{{> chosenResto group }}</span>
+        {{#if showButtons }}
+        <a href="#" class="text-primary wlt-edit" data-name="{{ name }}"><i class="fa fa-pencil"></i></a>
+        <a href="#" class="text-primary wlt-remove" data-name="{{ name }}"><i class="fa fa-trash-o"></i></a>
+        {{/if}}
+    </li>
 </template>
 
 <template name="searchUser">
