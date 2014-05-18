@@ -21,9 +21,6 @@ Template.groupList.helpers({
             return [];
         }
         return GroupList.find({}, {sort: {name: 1}});
-    },
-    group: function() {
-        return this;
     }
 });
 
@@ -119,6 +116,9 @@ Template.groupList.events({
 });
 
 Template.groupButton.helpers({
+    group: function() {
+        return this;
+    },
     showButtons: function() {
         var nbVotes = VoteList.find({groupName: this.name, date: today()}).count();
         return nbVotes === 0;
