@@ -35,19 +35,19 @@ Template.groupList.events({
         }
         event.preventDefault();
     },
-    'click .wlt-group .wlt-remove': function(event) {
-        var groupName = this.name;
-        if (groupName) {
-            var group = GroupList.findOne({name: groupName});
-            if (group) {
-                Meteor.call('removeRestoListByGroupName', groupName);
-                Meteor.call('removeVoteListByGroupName', groupName);
-                GroupList.remove(group._id);
-            }
-        }
-        event.stopPropagation();
-        event.preventDefault();
-    },
+//    'click .wlt-group .wlt-remove': function(event) {
+//        var groupName = this.name;
+//        if (groupName) {
+//            var group = GroupList.findOne({name: groupName});
+//            if (group) {
+//                Meteor.call('removeRestoListByGroupName', groupName);
+//                Meteor.call('removeVoteListByGroupName', groupName);
+//                GroupList.remove(group._id);
+//            }
+//        }
+//        event.stopPropagation();
+//        event.preventDefault();
+//    },
     'click .wlt-group .wlt-edit': function(event) {
         var groupName = this.name;
         if (groupName) {
